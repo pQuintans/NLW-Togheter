@@ -10,8 +10,17 @@
       justify-content: space-between;
       align-items: center;
 
-      >img {
+      .logo-link {
         max-height: 45px;
+      }
+
+      > div {
+        display: flex;
+        gap: 16px;
+
+        button {
+          height: 40px;
+        }
       }
     }
   }
@@ -82,18 +91,40 @@
           font-size: 14px;
           color: #737380;
           font-weight: 500;
+          display: flex;
+          align-items: center;
 
-          button {
-            background: transparent;
-            border: 0;
-            color: #835AFD;
-            text-decoration: underline;
-            font-size: 14px;
-            font-weight: 500;
+          .create-room {
+            margin-left: 10px;
+            padding: 20px 5px;
+            height: 30px;
+            border-radius: 8px;
+            background: #ea4335;
+            color: #FFF;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        
             cursor: pointer;
+            border: 0;
+        
+            transition: filter 0.2s;
+        
+            img {
+              margin-right: 8px;
+            }
+        
+            &:hover {
+              filter: brightness(0.9);
+            }
           }
         }
       }
+    }
+
+    .question-list {
+      margin-top: 32px;
     }
   }
 }
