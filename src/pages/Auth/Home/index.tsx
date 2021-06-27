@@ -41,12 +41,32 @@ export function Home() {
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
     if (!roomRef.exists()) {
-      toast.error("Sala não existente.");
+      if (theme === 'dark') {
+        toast.error("Sala não existente.", {
+            style: {
+              background: '#333',
+              color: '#fff',
+            },
+          }
+        );
+      } else {
+        toast.error("Sala não existente.");
+      }
       return;
     }
 
     if (roomRef.val().endedAt) {
-      toast.error("Esta sala já foi encerrada.");
+      if (theme === 'dark') {
+        toast.error("Esta sala já foi encerrada.", {
+            style: {
+              background: '#333',
+              color: '#fff',
+            },
+          }
+        );
+      } else {
+        toast.error("Esta sala já foi encerrada.");
+      }
       return;
     }
 

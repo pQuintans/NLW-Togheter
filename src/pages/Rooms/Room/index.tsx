@@ -50,7 +50,17 @@ export function Room() {
     }
 
     if (!user) {
-      throw toast.error("Você precisa estar logado para fazer uma pergunta.")
+      if (theme === 'dark') {
+        throw toast.error("Você precisa estar logado para fazer uma pergunta.", {
+            style: {
+              background: '#333',
+              color: '#fff',
+            },
+          }
+        );
+      } else {
+        throw toast.error("Você precisa estar logado para fazer uma pergunta.")
+      }
     }
 
     const question = {

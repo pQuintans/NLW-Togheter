@@ -1,5 +1,6 @@
 import { FormEvent, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 import illustrationImg from '../../../assets/images/illustration.svg';
 import darkThemeImg from '../../../assets/images/dark-theme.svg'
@@ -22,6 +23,17 @@ export function NewRoom() {
     event.preventDefault();
 
     if (newRoom.trim() === '') {
+      if (theme === 'dark') {
+        toast.error("Você precisa dar um nome à sala.", {
+            style: {
+              background: '#333',
+              color: '#fff',
+            },
+          }
+        );
+      } else {
+        toast.error("Você precisa dar um nome à sala.")
+      }
       return;
     }
 
@@ -37,6 +49,7 @@ export function NewRoom() {
 
   return(
     <div id="page-auth" className={theme}>
+      <div><Toaster/></div>
       <aside className={theme}>
         <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>

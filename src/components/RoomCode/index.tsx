@@ -11,7 +11,16 @@ type RoomCodeProps = {
 export function RoomCode(props: RoomCodeProps) {
   function copyRoomCodeToClipboard() {
     navigator.clipboard.writeText(props.code);
-    toast.success("Código copiado para a área de tranferência.");
+    if (props.theme === 'dark') {
+      toast.success(("Código copiado para a área de tranferência."), {
+        style: {
+          background: '#333',
+          color: '#fff',
+        },
+      })
+    } else {
+      toast.success("Código copiado para a área de tranferência.");
+    }
   }
 
   return (
