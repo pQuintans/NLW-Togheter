@@ -1,5 +1,5 @@
 import { useHistory, useParams } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 import deleteImg from '../../../assets/images/delete.svg';
 import checkImg from '../../../assets/images/check.svg';
@@ -11,25 +11,52 @@ import { Button } from '../../../components/Button';
 import { RoomCode } from '../../../components/RoomCode';
 import { Question } from '../../../components/Question';
 import { useRoom } from '../../../hooks/useRoom';
-// import { useAuth } from '../../../hooks/useAuth';
+import { useAuth } from '../../../hooks/useAuth';
 import { useTheme } from '../../../hooks/useTheme';
 
 import { database } from '../../../services/firebase';
 
 import '../styles.scss'
+import { useEffect } from 'react';
 
 type RoomParams = {
   id: string;
 }
 
 export function AdminRoom() {
-  // const { user } = useAuth();
+  const { user } = useAuth();
   const { theme, toggleTheme} = useTheme();
   const history = useHistory();
   const params = useParams<RoomParams>();
   const roomId = params.id;
 
   const { title, questions } = useRoom(roomId);
+
+  useEffect(() => {
+    const roomRef = database.ref(`rooms/${roomId}/authorId`)
+
+    roomRef.on('value', room => {
+      const authorOfTheRoom = room.val();
+      if(!(authorOfTheRoom === user?.id)) {  
+        if (theme === 'dark') {
+          toast.error('Você não pode entrar na visão de admin em uma sala que não é sua.', {
+              style: {
+                background: '#333',
+                color: '#fff',
+              },
+            }
+          );
+        } else {
+          toast.error("Você não pode entrar na visão de admin em uma sala que não é sua."); 
+        }        
+        history.push('/');
+      }
+    })
+
+    return () => {
+      roomRef.off('value');
+    }
+  },[roomId, user?.id, history, theme]);
 
   async function handleEndRoom() {
     await database.ref(`rooms/${roomId}`).update({

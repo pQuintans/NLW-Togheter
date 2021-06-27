@@ -35,7 +35,17 @@ export function Room() {
     event.preventDefault();
 
     if (newQuestion.trim() === '') {
-      toast.error("Escreva uma pergunta.");
+      if (theme === 'dark') {
+        toast.error("Você precisa digitar algo antes de enviar.", {
+            style: {
+              background: '#333',
+              color: '#fff',
+            },
+          }
+        );
+      } else {
+        toast.error("Você precisa digitar algo antes de enviar."); 
+      }
       return;
     }
 
