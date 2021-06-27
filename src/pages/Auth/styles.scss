@@ -3,11 +3,19 @@
   align-items: stretch;
   height: 100vh;
 
+  &.dark {
+    background: #202124;
+  }
+
   aside {
     flex: 7;
-
     background: #835afd;
     color: #FFF;
+
+    &.dark {
+      background: #4f3699;
+      color: #e8eaed;
+    }
 
     display: flex;
     flex-direction: column;
@@ -51,14 +59,41 @@
     align-items: stretch;
     text-align: center;
 
-    > img {
+    .change-themes-button {
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      position: fixed;
+      right: 0;
+      top: 0;
+
+      margin: 1em 1em 0 0;
+    }
+
+    > svg {
       align-self: center;
+
+      &.dark {
+        color: #835afd;
+
+        path.white-in-dark {
+          fill: #e8eaed;
+        }
+      }
     }
 
     h2 {
       font-size: 24px;
       margin: 64px 0 24px;
       font-family: 'Poppins', sans-serif;
+      
+      &.dark {
+        color: #e8eaed;
+      }
     }
 
     form {
@@ -67,7 +102,37 @@
         border-radius: 8px;
         padding: 0 16px;
         background: #FFF;
-        border: 1px solid #a8a8b3;
+        border: 1px solid transparent;
+        box-shadow: 0 2px 5px 1px rgba(64, 60, 67, 0.16);
+
+        &:hover {
+          box-shadow: 0 2px 8px 1px rgba(64, 60, 67, 0.24);
+          border-color: rgba(223,225,229,0);
+        }
+
+        &:focus {
+          box-shadow: 0 2px 5px 1px rgba(64, 60, 67, 0.16);
+        }
+
+        &:focus {
+          outline: 0;
+        }
+
+        &.dark {
+          background: #303134;
+          border-color: rgba(223,225,229,0);
+          color: #e8eaed;
+
+          &:hover {
+            box-shadow: 0 4px 12px rgb(23, 23, 23 );
+          }
+
+          &:focus {
+            box-shadow: none;
+          }
+        }
+
+        
       }
 
       button {

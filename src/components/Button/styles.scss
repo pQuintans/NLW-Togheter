@@ -33,4 +33,15 @@
     opacity: 0.6;
     cursor: not-allowed;
   }
+
+  &.dark {
+    background: #4f3699;
+    color: #e2e2e2;
+
+    &.outlined {
+      background: #303134;
+      border: 1px solid #9d7cff;
+      color: #9d7cff;
+    }
+  }
 }

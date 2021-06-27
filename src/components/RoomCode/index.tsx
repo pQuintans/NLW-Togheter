@@ -5,6 +5,7 @@ import './styles.scss'
 
 type RoomCodeProps = {
   code: string;
+  theme?: string;
 }
 
 export function RoomCode(props: RoomCodeProps) {
@@ -14,7 +15,7 @@ export function RoomCode(props: RoomCodeProps) {
   }
 
   return (
-    <button className="room-code" onClick={copyRoomCodeToClipboard}>
+    <button id='room-code'className={props.theme} onClick={copyRoomCodeToClipboard}>
       <div>
         <img src={copyImg} alt="Copy room code" />
       </div>

@@ -21,6 +21,27 @@
     background: #dbdcdd;
   }
 
+  &.dark {
+    background: #303134;
+
+    p {
+      color: #e8eaed;
+    }
+
+    &.highlighted {
+      background: #1a0f24;
+      border: 1px solid #4f3699;
+      
+      footer .user-info span {
+        color: #29292e;
+      }
+    }
+    
+    &.answered {
+      background: rgb(131, 130, 130);
+    }
+  }
+
   p {
     color: #29292e;
   }

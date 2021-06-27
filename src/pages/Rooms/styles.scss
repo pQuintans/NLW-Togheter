@@ -1,7 +1,33 @@
 #page-room {
+  height: 100vh;
+
+  &.dark {
+    background: #202124;
+
+    .room-title {
+      h1{
+        color: #e8eaed;
+      }
+      span {
+        background: #81318b;
+        color: #FFF;
+      }
+    }
+
+    .user-info span {
+      color: #e8eaed !important;  
+    }
+  }
+
   header {
     padding: 24px;
     border-bottom: 1px solid #e2e2e2;
+
+    &.dark {
+      background: #303134;
+      box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .2);
+      border-bottom: none;
+    }
 
     .content {
       max-width: 1120px;
@@ -10,9 +36,19 @@
       justify-content: space-between;
       align-items: center;
 
-      .logo-link {
+      .logo-link svg {
         max-height: 45px;
+        padding: 0;
+
+        &.dark {
+          color: #835afd;
+
+          path.white-in-dark {
+            fill: rgb(222, 222, 222);
+          }
+        }
       }
+
 
       > div {
         display: flex;
@@ -21,6 +57,15 @@
         button {
           height: 40px;
         }
+      }
+
+      .change-themes-button {
+        width: 40px;
+        height: 40px;
+        border: none;
+        background: transparent;
+  
+        cursor: pointer;
       }
     }
   }
@@ -61,6 +106,33 @@
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
         resize: vertical;
         min-height: 130px;
+
+        &:hover {
+          box-shadow: 0 2px 8px 1px rgba(64, 60, 67, 0.24);
+          border-color: rgba(223,225,229,0);
+        }
+
+        &:focus {
+          box-shadow: 0 2px 5px 1px rgba(64, 60, 67, 0.16);
+        }
+
+        &:focus {
+          outline: 0;
+        }
+
+        &.dark {
+          background: #303134;
+          border-color: rgba(223,225,229,0);
+          color: #e8eaed;
+
+          &:hover {
+            box-shadow: 0 4px 12px rgb(23, 23, 23 );
+          }
+
+          &:focus {
+            box-shadow: none;
+          }
+        }
       }
 
       .form-footer {

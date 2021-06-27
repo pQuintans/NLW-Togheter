@@ -12,6 +12,7 @@ type QuestionProps = {
   children? : ReactNode;
   isAnswered?: boolean;
   isHighlighted?: boolean;
+  isDark?: boolean;
 }
 
 export function Question({
@@ -19,12 +20,14 @@ export function Question({
   author,
   isAnswered = false,
   isHighlighted = false,
+  isDark = false,
   children,
   }: QuestionProps) {
   return (
     <div 
       className={cx(
         'question',
+        { dark: isDark },
         { answered: isAnswered },
         { highlighted: isHighlighted && !isAnswered }
       )}
