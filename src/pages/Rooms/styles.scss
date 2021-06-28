@@ -1,5 +1,7 @@
 #page-room {
-  height: 100vh;
+  min-height: 100vh;
+  padding-bottom: 30px;
+  
 
   &.dark {
     background: #202124;
