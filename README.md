@@ -1,9 +1,9 @@
 <h1 align='center'>
-  <img src='https://ik.imagekit.io/pQuintans/logo_copy_R9zLXXd8L.svg'>
+  <img src='./src/assets/logo-github.svg'>
 </h1>
 
 <h1>
-  <img src='https://ik.imagekit.io/pQuintans/2021-06-29-20-28-39_xqWf9sPws.gif'>
+  <img src='./src/assets/demostration-github.gif'>
 </h1>
 
 <h3 align='center'>
@@ -12,12 +12,19 @@
 
 # Indice
 - [Sobre](#-sobre)
+- [Milha extra](#-milha-extra)
 - [Tecnologias Utilizadas](#-tecnologias-utilizadas)
 - [Como baixar o projeto](#-como-baixar-o-projeto)
 
 ## 📋 Sobre
 
 O projeto **Letmeask** é uma plataforma de perguntas e respota para livestreams desenvolvido dentro da semana **NLW-Togheter**, da Rockeatseat.
+
+## 💨 Milha extra
+#### (Features implementadas depois do NLW-Togheter)
+
+- Modo escuro
+- Verificação para entrar em uma sala com administrador
 
 ---
 
